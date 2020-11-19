@@ -11,7 +11,6 @@ import { Redirect } from 'react-router-dom'
 // Components
 import Button from '../../components/button';
 
-
 // Services
 import { gameData as game_data } from '../../services/data';
 import { themes } from '../../services/themes';

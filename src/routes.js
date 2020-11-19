@@ -8,7 +8,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // Pages
 import GameSettings from './pages/GameSettings';
 import Game from './pages/Game';
-
+//import { quiz } from './components/quiz';
+ 
+  //<Quiz quiz={quiz} showDefaultResult={false} customResultPage={renderCustomResultPage}/
 
 class Routes extends Component {
     render() {
@@ -17,6 +19,7 @@ class Routes extends Component {
                 <Switch>
                     <Route exact path="/" component={GameSettings} />
                     <Route path="/ticTacToe" component={Game} />
+                    
                 </Switch>
             </BrowserRouter>
         );

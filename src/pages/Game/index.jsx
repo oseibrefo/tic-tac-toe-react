@@ -22,6 +22,77 @@ import Button from '../../components/button';
 import { gameData as game_data } from '../../services/data';
 import { themes } from '../../services/themes';
 
+export const quiz =  {
+    "quizTitle": "React Quiz Component Demo",
+    "quizSynopsis": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
+    "questions": [
+      {
+        "question": "How can you access the state of a component from inside of a member function?",
+        "questionType": "text",
+        "answers": [
+          "this.getState()",
+          "this.prototype.stateValue",
+          "this.state",
+          "this.values"
+        ],
+        "correctAnswer": "3",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "question": "ReactJS is developed by _____?",
+        "questionType": "text",
+        "answers": [
+          "Google Engineers",
+          "Facebook Engineers"
+        ],
+        "correctAnswer": "2",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "question": "ReactJS is an MVC based framework?",
+        "questionType": "text",
+        "answers": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "2",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "question": "Which of the following concepts is/are key to ReactJS?",
+        "questionType": "text",
+        "answers": [
+          "Component-oriented design",
+          "Event delegation model",
+          "Both of the above",
+        ],
+        "correctAnswer": "3",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+        "questionType": "photo",
+        "answers": [
+          "https://dummyimage.com/600x400/000/fff&text=A",
+          "https://dummyimage.com/600x400/000/fff&text=B",
+          "https://dummyimage.com/600x400/000/fff&text=C",
+          "https://dummyimage.com/600x400/000/fff&text=D"
+        ],
+        "correctAnswer": "1",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    ]
+  }
 
 
 class Game extends Component {
@@ -39,7 +110,8 @@ class Game extends Component {
 
         board: ['', '', '', '', '', '', '', '', ''],
         symbols: {
-            options: ['X', 'O'],
+            //options: ['covid19  ', 'flu'],
+            options: [<img src="https://i.ibb.co/XpmLL35/COVIDTEMP.jpg" alt="COVIDTEMP" border="0"img/>, <img src="https://i.ibb.co/vx56BDr/covidimag.jpg" alt="covidimag" border="0"img/>],
             turn_index: Math.round(Math.random(0, 1)),
             change() {
                 this.turn_index = (this.turn_index === 0) ? 1 : 0;
@@ -47,8 +119,8 @@ class Game extends Component {
         },
 
         winning_sequences: [
-            [0, 1, 2],
-            [3, 4, 5],
+            [1, 0, 2],
+            [4, 3, 5],
             [6, 7, 8],
             [0, 3, 6],
             [1, 4, 7],
@@ -97,7 +169,7 @@ class Game extends Component {
                 const last_round = {
                     roundNumber: state.game.roundNumber,
                     winner: {
-                        player: (state.symbols.options[state.symbols.turn_index] === "X") ? 1 : 2,
+                        player: (state.symbols.options[state.symbols.turn_index] === <img src="https://i.ibb.co/XpmLL35/COVIDTEMP.jpg" alt="COVIDTEMP" border="0"img/>) ? 1 : 2,
                     }
                 }
 
@@ -267,7 +339,7 @@ class Game extends Component {
             return (
                 <div className="Game">
 
-                    <h1 className="player">Turn: {(this.state.symbols.options[this.state.symbols.turn_index] === "X") ? this.state.game.p1.nickname : this.state.game.p2.nickname} ({this.state.symbols.options[this.state.symbols.turn_index]})</h1>
+                    <h1 className="player">Turn: {(this.state.symbols.options[this.state.symbols.turn_index] === <img src="https://i.ibb.co/XpmLL35/COVIDTEMP.jpg" alt="COVIDTEMP" border="0"img/>) ? this.state.game.p2.nickname : this.state.game.p1.nickname} ({this.state.symbols.options[this.state.symbols.turn_index]})</h1>
 
                     <Board>
                         {this.state.board.map((value, index) =>
